@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Leads.Application/obj
+/Leads.Data/obj
+/Leads.Domain/obj
+/Leads.SharedKernel/obj
+/leads-manager/obj
+/leads-manager/.vs
+/leads-manager/bin/Debug/net6.0
+/Leads.Application/bin/Debug/net6.0
+/Leads.Data/bin/Debug/net6.0
+/Leads.Domain/bin/Debug/net6.0
+/Leads.SharedKernel/bin/Debug/net6.0
