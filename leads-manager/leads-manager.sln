@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "leads-manager", "leads-manager.csproj", "{DEDEF93D-98B5-4E3D-B830-E59E37FB5138}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leads-Manager", "Leads-Manager.csproj", "{DEDEF93D-98B5-4E3D-B830-E59E37FB5138}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leads.Application", "..\Leads.Application\Leads.Application.csproj", "{BEA934FC-C55D-4F70-91E5-5B3ED6EDBCC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leads.Application", "..\Leads.Application\Leads.Application.csproj", "{BEA934FC-C55D-4F70-91E5-5B3ED6EDBCC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leads.Domain", "..\Leads.Domain\Leads.Domain.csproj", "{BB4349DE-7E10-46D1-A3FB-1BC6BF395D14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leads.Domain", "..\Leads.Domain\Leads.Domain.csproj", "{BB4349DE-7E10-46D1-A3FB-1BC6BF395D14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leads.Data", "..\Leads.Data\Leads.Data.csproj", "{AC4D2D34-7905-41A4-9397-08E73C318FF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leads.Data", "..\Leads.Data\Leads.Data.csproj", "{AC4D2D34-7905-41A4-9397-08E73C318FF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leads.SharedKernel", "..\Leads.SharedKernel\Leads.SharedKernel.csproj", "{DF4D6918-CDFF-41EB-BE52-877921CAA9DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leads.SharedKernel", "..\Leads.SharedKernel\Leads.SharedKernel.csproj", "{DF4D6918-CDFF-41EB-BE52-877921CAA9DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Leads.Domain.Aggregates
+namespace Leads.Domain.Enums
 {
-    public class Lead
+    public enum LeadStatus
     {
+        Invited,
+        Accepted
     }
 }

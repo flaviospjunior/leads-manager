@@ -15,4 +15,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Leads.Application\Leads.Application.csproj" />
+  </ItemGroup>
+
 </Project>

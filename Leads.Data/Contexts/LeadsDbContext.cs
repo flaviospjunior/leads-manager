@@ -1,4 +1,4 @@
-﻿using Leads.Domain.Aggregates;
+﻿using Leads.Domain.Aggregates.Lead;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
