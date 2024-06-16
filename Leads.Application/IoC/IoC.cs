@@ -1,14 +1,10 @@
-﻿using Leads.Data.Contexts;
+﻿using Leads.Application.Services.EmailService;
+using Leads.Data.Contexts;
 using Leads.Data.Repositories;
 using Leads.Domain.Aggregates.Lead;
 using Leads.SharedKernel;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Leads.Application.IoC
 {
@@ -26,6 +22,8 @@ namespace Leads.Application.IoC
 
         public static IServiceCollection AddAplicationServices(this IServiceCollection services)
         {
+            services.AddScoped<IEmailService, EmailService>();
+
             return services;
         }
 

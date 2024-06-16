@@ -9,11 +9,11 @@ namespace Leads.Application.Features.Leads.Commands.ChangeLeadStatus
 {
     public class ChangeLeadStatusCommand: Command<ChangeLeadStatusCommandResponse>
     {
-        public Guid LeadId { get; set; }
+       public ChangeLeadStatusCommandDto ChangeLeadStatusCommandDto { get; set; }
 
-        public ChangeLeadStatusCommand(Guid leadId)
+        public ChangeLeadStatusCommand(ChangeLeadStatusCommandDto changeLeadStatusCommandDto)
         {
-            LeadId = leadId;
+            ChangeLeadStatusCommandDto = changeLeadStatusCommandDto;
         }
     }
 }

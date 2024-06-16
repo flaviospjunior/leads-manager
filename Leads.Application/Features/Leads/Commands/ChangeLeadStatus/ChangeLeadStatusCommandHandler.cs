@@ -1,4 +1,6 @@
-﻿using Leads.Domain.Aggregates.Lead;
+﻿using FluentValidation.Results;
+using Leads.Domain.Aggregates.Lead;
+using Leads.Domain.Enums;
 using Leads.SharedKernel.Mediator.Messages;
 using System;
 using System.Collections.Generic;
@@ -19,7 +21,7 @@ namespace Leads.Application.Features.Leads.Commands.ChangeLeadStatus
 
         public override async Task<ChangeLeadStatusCommandResponse> Handle(ChangeLeadStatusCommand request, CancellationToken cancellationToken)
         {
-            var lead = await _leadRepository.GetByIdAsync(request.LeadId);
+            var lead = await _leadRepository.GetByIdAsync(request.ChangeLeadStatusCommandDto.LeadId);
 
             if (lead is null)
                 return new ChangeLeadStatusCommandResponse(false, "Lead não encontrada");
@@ -29,11 +31,16 @@ namespace Leads.Application.Features.Leads.Commands.ChangeLeadStatus
             if(!request.IsValid()) 
                 return ResponseOnFailValidation("Não foi possível alterar o status da Lead", request.ValidationResult);
 
-            lead.AcceptLead();
+            lead.ChangeLeadStatus((LeadStatus)request.ChangeLeadStatusCommandDto.NewStatus);
 
             await _leadRepository.UpdateAsync(lead);
 
             return new ChangeLeadStatusCommandResponse(lead);
+        }
+
+        protected async override Task<List<ValidationFailure>> Validate( ChangeLeadStatusCommand request, CancellationToken cancellationToken)
+        {
+            return (await new ChangeLeadStatusCommandValidation().ValidateAsync(request, cancellationToken)).Errors;
         }
     }
 }

@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Leads.Domain.Enums
+namespace Leads.Application.Services.EmailService
 {
-    public enum LeadStatus
+    public interface IEmailService
     {
-        Invited,
-        Accepted,
-        Refused
+        Task SendAcceptanceEmail();
     }
 }

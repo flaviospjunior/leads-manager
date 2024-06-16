@@ -27,6 +27,5 @@ namespace Leads.Application.Features.Leads.Commands.ChangeLeadStatus
             Lead = lead;
         }
 
-
     }
 }

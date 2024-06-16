@@ -1,36 +1,18 @@
 ﻿using Leads.Domain.Aggregates.Lead;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Leads.Data.Contexts
 {
     public class LeadsDbContext : DbContext
     {
-        internal string _connectionString;
+        public DbSet<Lead> Leads { get; set; }
 
-        public DbSet<Lead> Leads { get; set; }  
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public LeadsDbContext(DbContextOptions<LeadsDbContext> options) : base(options)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer(_connectionString, op => op.MigrationsHistoryTable("__EFMigrationsHistory"));
-            }
-
-            optionsBuilder.EnableSensitiveDataLogging();
-
-            base.OnConfiguring(optionsBuilder);
-        }
-
-        public void SetConnection(string connectionString)
-        {
-            _connectionString = connectionString;
-
-            Database.GetDbConnection().ConnectionString = _connectionString;
+            
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellation = default)

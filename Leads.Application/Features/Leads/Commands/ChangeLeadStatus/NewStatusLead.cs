@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Leads.Application.Features.Leads.Queries.GetAllLeads
+namespace Leads.Application.Features.Leads.Commands.ChangeLeadStatus
 {
-    internal class GetAllLeadsQueryDto
+    public enum NewStatusLead
     {
+        Accepted,
+        Refused
     }
 }
