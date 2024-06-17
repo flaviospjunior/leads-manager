@@ -1,16 +1,10 @@
-﻿using Leads.Domain.Aggregates.Lead;
-using Leads.SharedKernel.Mediator.Messages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Leads.SharedKernel.Mediator.Messages;
 
 namespace Leads.Application.Features.Leads.Queries.GetAllLeads
 {
     public class GetAllLeadsQueryResponse : BaseHandlerResponse
     {
-        public List<Lead> Leads { get; set; }
+        public List<GetAllLeadsViewModel> LeadsViewModel { get; set; }
 
         public GetAllLeadsQueryResponse()
         {
@@ -22,9 +16,9 @@ namespace Leads.Application.Features.Leads.Queries.GetAllLeads
             
         }
 
-        public GetAllLeadsQueryResponse(List<Lead> leads)
+        public GetAllLeadsQueryResponse(List<GetAllLeadsViewModel> leadsViewModel)
         {
-            Leads = leads; 
+            LeadsViewModel = leadsViewModel; 
         }
 
     }

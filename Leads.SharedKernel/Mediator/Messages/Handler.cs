@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 
 namespace Leads.SharedKernel.Mediator.Messages
 {
@@ -10,6 +6,11 @@ namespace Leads.SharedKernel.Mediator.Messages
         where T:BaseHandlerResponse
         where TCommand: BaseMessage<T>
     {
+
+        public Handler(IMapper mapper) : base(mapper)
+        {
+            
+        }
 
     }
 }

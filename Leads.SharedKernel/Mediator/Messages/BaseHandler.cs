@@ -1,4 +1,5 @@
-﻿using FluentValidation.Results;
+﻿using AutoMapper;
+using FluentValidation.Results;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,12 @@ namespace Leads.SharedKernel.Mediator.Messages
         where TResponse : BaseHandlerResponse
         where TRequest : BaseMessage<TResponse>
     {
+        protected IMapper _mapper;
+        public BaseHandler(IMapper mapper)
+        {
+            _mapper = mapper;
+        }
+
         public abstract Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken);
 
         protected virtual Task<List<ValidationFailure>> Validate(TRequest request, CancellationToken cancellationToken)

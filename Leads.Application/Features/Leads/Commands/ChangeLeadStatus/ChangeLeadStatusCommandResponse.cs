@@ -1,16 +1,10 @@
-﻿using Leads.Domain.Aggregates.Lead;
-using Leads.SharedKernel.Mediator.Messages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Leads.SharedKernel.Mediator.Messages;
 
 namespace Leads.Application.Features.Leads.Commands.ChangeLeadStatus
 {
     public class ChangeLeadStatusCommandResponse : BaseHandlerResponse
     {
-        public Lead Lead { get; private set; }
+        public ChangeLeadStatusViewModel LeadViewModel { get; private set; }
 
         public ChangeLeadStatusCommandResponse()
         {
@@ -22,9 +16,9 @@ namespace Leads.Application.Features.Leads.Commands.ChangeLeadStatus
             
         }
 
-        public ChangeLeadStatusCommandResponse(Lead lead)
+        public ChangeLeadStatusCommandResponse(ChangeLeadStatusViewModel leadViewModel)
         {
-            Lead = lead;
+            LeadViewModel = leadViewModel;
         }
 
     }

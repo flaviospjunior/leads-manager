@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Leads.Domain.Interfaces
 {
-    public interface IRepositoryBase<T> where T : class
+    public interface IRepositoryBase<T> where T : class, IAggregateRoot
     {
         Task<T> CreateAsync(T entity);  
         Task UpdateAsync(T entity);

@@ -1,4 +1,6 @@
-﻿using Leads.Application.Services.EmailService;
+﻿using AutoMapper;
+using Leads.Application.Configuration;
+using Leads.Application.Services.EmailService;
 using Leads.Data.Contexts;
 using Leads.Data.Repositories;
 using Leads.Domain.Aggregates.Lead;
@@ -10,11 +12,11 @@ namespace Leads.Application.IoC
 {
     public static class IoC
     {
-
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddAplicationServices();
             services.AddDataServices();
+            services.AddInfrastructureServices();
             services.ConfigureKernel();
 
             return services;
@@ -34,6 +36,21 @@ namespace Leads.Application.IoC
 
             return services;
         }
+
+        public static IMapper GetMapper()
+        {
+            return AutoMapperConfiguration.ConfigureMapper();
+        }
+
+        public static IServiceCollection AddInfrastructureServices(this IServiceCollection services)
+        {
+            var mapper = GetMapper();
+            services.AddSingleton(mapper);
+            services.AddMemoryCache();
+
+            return services;
+        }
+
 
         private static IServiceCollection ConfigureKernel(this IServiceCollection services)
         {

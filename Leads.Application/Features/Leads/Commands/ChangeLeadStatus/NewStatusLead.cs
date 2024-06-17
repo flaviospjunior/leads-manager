@@ -8,7 +8,7 @@ namespace Leads.Application.Features.Leads.Commands.ChangeLeadStatus
 {
     public enum NewStatusLead
     {
-        Accepted,
+        Accepted = 1,
         Refused
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Leads.Data.Repositories
 {
-    public class RepositoryBase<T> : IRepositoryBase<T> where T : class
+    public class RepositoryBase<T> : IRepositoryBase<T> where T : class, IAggregateRoot
     {
         protected readonly LeadsDbContext _context;
         //TODO - IMPLEMENT AUDITABLE ENTITY

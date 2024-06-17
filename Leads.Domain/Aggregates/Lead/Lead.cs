@@ -1,30 +1,29 @@
-﻿using Leads.Domain.Enums;
+﻿using Leads.Domain.Entities;
+using Leads.Domain.Enums;
+using Leads.Domain.Interfaces;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Leads.Domain.Aggregates.Lead
 {
-    public class Lead
+    public class Lead : IAggregateRoot
     {
-        public Lead(Guid id, string name, string description, decimal price, DateTime creationDate, string email, string phoneNumber)
+        public Lead(Guid id, string description, decimal price, DateTime creationDate)
         {
             Id = id;
-            Name = name;
             Status = LeadStatus.Invited;
             Description = description;
             Price = price;
             CreationDate = creationDate == default ? DateTime.Now : creationDate;
-            Email = email;
-            PhoneNumber = phoneNumber;
         }
 
-        public Guid Id { get; set; }
-        public string Name { get; set; }
+        public Guid Id { get; private set; }
         public LeadStatus Status { get;  private set; }
-        public string Description { get; set; }
-        public decimal Price { get; set; }
+        public string Description { get; private set; }
+        public decimal Price { get; private set; }
         public decimal FinalPrice { get; private set; }
-        public DateTime CreationDate { get; set; }
-        public string Email { get; set; }
-        public string PhoneNumber { get; set; }
+        public DateTime CreationDate { get; private set; }
+        public virtual Suburb Suburb { get; private set; }
+        public virtual Contact Contact { get; private set; }
 
         public void ChangeLeadStatus(LeadStatus leadStatus)
         {
@@ -43,9 +42,11 @@ namespace Leads.Domain.Aggregates.Lead
 
         private void ApplyDiscount()
         {
-            if (Price > 500)
+            var discount = 10m;
+
+            if (Price > 500m)
             {
-                FinalPrice = (10 / 100) * Price;
+                FinalPrice = decimal.Multiply(decimal.Divide(100m - discount, 100), Price);
             }
             else
             {
