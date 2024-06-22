@@ -15,19 +15,21 @@ namespace Leads.Data.Repositories
 
         }
 
-        public async Task<Lead> GetByIdWithSuburbAndContact(Guid id)
+        public async Task<Lead> GetByIdComplete(Guid id)
         {
             return await _context.Leads
                 .Include(ld => ld.Suburb)
                 .Include(ld => ld.Contact)
+                .Include(ld => ld.Category)
                 .FirstOrDefaultAsync(ld => ld.Id.Equals(id));
         }
 
-        public async Task<List<Lead>> GetAllWithContactAndSuburb()
+        public async Task<List<Lead>> GetAllComplete()
         {
             return await _context.Leads.AsNoTracking()
                 .Include(ld => ld.Suburb)
                 .Include(ld => ld.Contact)
+                .Include(ld => ld.Category)
                 .ToListAsync();
         }
 

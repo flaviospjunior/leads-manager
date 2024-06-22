@@ -4,7 +4,7 @@ namespace Leads.Domain.Aggregates.Lead
 {
     public interface ILeadRepository : IRepositoryBase<Lead>
     {
-        Task<Lead> GetByIdWithSuburbAndContact(Guid Id);
-        Task<List<Lead>> GetAllWithContactAndSuburb();
+        Task<Lead> GetByIdComplete(Guid Id);
+        Task<List<Lead>> GetAllComplete();
     }
 }

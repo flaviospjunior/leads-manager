@@ -15,7 +15,7 @@ namespace Leads.Application.Features.Leads.Queries.GetAllLeads
 
         public override async Task<GetAllLeadsQueryResponse> Handle(GetAllLeadsQuery request, CancellationToken cancellationToken)
         {
-            var leads = await _leadRepository.GetAllWithContactAndSuburb();
+            var leads = await _leadRepository.GetAllComplete();
 
             if (!leads.Any())
                 return new GetAllLeadsQueryResponse();

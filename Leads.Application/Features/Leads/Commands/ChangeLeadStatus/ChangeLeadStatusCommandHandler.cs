@@ -22,7 +22,7 @@ namespace Leads.Application.Features.Leads.Commands.ChangeLeadStatus
 
         public override async Task<ChangeLeadStatusCommandResponse> Handle(ChangeLeadStatusCommand request, CancellationToken cancellationToken)
         {
-            var lead = await _leadRepository.GetByIdWithSuburbAndContact(request.ChangeLeadStatusCommandDto.LeadId);
+            var lead = await _leadRepository.GetByIdComplete(request.ChangeLeadStatusCommandDto.LeadId);
 
             if (lead is null)
                 return new ChangeLeadStatusCommandResponse(false, "Lead não encontrada");

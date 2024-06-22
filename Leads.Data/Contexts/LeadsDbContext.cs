@@ -1,7 +1,5 @@
 ﻿using Leads.Domain.Aggregates.Lead;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System;
 
 namespace Leads.Data.Contexts
 {
@@ -9,10 +7,8 @@ namespace Leads.Data.Contexts
     {
         public DbSet<Lead> Leads { get; set; }
 
-
         public LeadsDbContext(DbContextOptions<LeadsDbContext> options) : base(options)
         {
-            
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellation = default)
@@ -32,7 +28,5 @@ namespace Leads.Data.Contexts
 
             return base.SaveChangesAsync(cancellation);
         }
-
-
     }
 }

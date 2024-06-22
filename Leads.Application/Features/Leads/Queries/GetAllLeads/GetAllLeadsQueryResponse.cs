@@ -4,7 +4,7 @@ namespace Leads.Application.Features.Leads.Queries.GetAllLeads
 {
     public class GetAllLeadsQueryResponse : BaseHandlerResponse
     {
-        public List<GetAllLeadsViewModel> LeadsViewModel { get; set; }
+        public List<GetAllLeadsViewModel> Leads { get; set; }
 
         public GetAllLeadsQueryResponse()
         {
@@ -18,7 +18,7 @@ namespace Leads.Application.Features.Leads.Queries.GetAllLeads
 
         public GetAllLeadsQueryResponse(List<GetAllLeadsViewModel> leadsViewModel)
         {
-            LeadsViewModel = leadsViewModel; 
+            Leads = leadsViewModel; 
         }
 
     }

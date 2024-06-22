@@ -1,20 +1,12 @@
 ﻿using Leads.Domain.Entities;
 using Leads.Domain.Enums;
 using Leads.Domain.Interfaces;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Leads.Domain.Aggregates.Lead
 {
     public class Lead : IAggregateRoot
     {
-        public Lead(Guid id, string description, decimal price, DateTime creationDate)
-        {
-            Id = id;
-            Status = LeadStatus.Invited;
-            Description = description;
-            Price = price;
-            CreationDate = creationDate == default ? DateTime.Now : creationDate;
-        }
+
 
         public Guid Id { get; private set; }
         public LeadStatus Status { get;  private set; }
@@ -24,6 +16,25 @@ namespace Leads.Domain.Aggregates.Lead
         public DateTime CreationDate { get; private set; }
         public virtual Suburb Suburb { get; private set; }
         public virtual Contact Contact { get; private set; }
+        public virtual Category Category { get; private set; }
+
+        public Lead()
+        {
+
+        }
+
+        public Lead(Guid id, LeadStatus status, string description, decimal price, decimal finalPrice, DateTime creationDate, Suburb suburb, Contact contact, Category category)
+        {
+            Id = id;
+            Status = status;
+            Description = description;
+            Price = price;
+            FinalPrice = finalPrice;
+            CreationDate = creationDate;
+            Suburb = suburb;
+            Contact = contact;
+            Category = category;
+        }
 
         public void ChangeLeadStatus(LeadStatus leadStatus)
         {
