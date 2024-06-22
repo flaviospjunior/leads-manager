@@ -15,7 +15,7 @@ namespace Leads.Data.Repositories
 
         }
 
-        public async Task<Lead> GetByIdComplete(Guid id)
+        public async Task<Lead> GetByIdCompleteAsync(Guid id)
         {
             return await _context.Leads
                 .Include(ld => ld.Suburb)
@@ -24,7 +24,7 @@ namespace Leads.Data.Repositories
                 .FirstOrDefaultAsync(ld => ld.Id.Equals(id));
         }
 
-        public async Task<List<Lead>> GetAllComplete()
+        public async Task<List<Lead>> GetAllCompleteAsync()
         {
             return await _context.Leads.AsNoTracking()
                 .Include(ld => ld.Suburb)

@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leads.Data", "..\Leads.Data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leads.SharedKernel", "..\Leads.SharedKernel\Leads.SharedKernel.csproj", "{DF4D6918-CDFF-41EB-BE52-877921CAA9DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leads.Tests", "..\Leads.Tests\Leads.Tests.csproj", "{8CC10406-0DA5-49BB-BE0A-9BD75A2FCFEE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{DF4D6918-CDFF-41EB-BE52-877921CAA9DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF4D6918-CDFF-41EB-BE52-877921CAA9DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF4D6918-CDFF-41EB-BE52-877921CAA9DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CC10406-0DA5-49BB-BE0A-9BD75A2FCFEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CC10406-0DA5-49BB-BE0A-9BD75A2FCFEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CC10406-0DA5-49BB-BE0A-9BD75A2FCFEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CC10406-0DA5-49BB-BE0A-9BD75A2FCFEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

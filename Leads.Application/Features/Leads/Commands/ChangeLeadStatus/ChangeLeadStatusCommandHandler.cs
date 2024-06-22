@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
 using FluentValidation.Results;
+using Leads.Application.Events.AcceptLeadEvent;
 using Leads.Domain.Aggregates.Lead;
 using Leads.Domain.Enums;
 using Leads.SharedKernel.Mediator.Messages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MediatR;
 
 namespace Leads.Application.Features.Leads.Commands.ChangeLeadStatus
 {
@@ -15,14 +12,14 @@ namespace Leads.Application.Features.Leads.Commands.ChangeLeadStatus
     {
         private ILeadRepository _leadRepository;
 
-        public ChangeLeadStatusCommandHandler(ILeadRepository leadRepository, IMapper mapper) : base(mapper) 
+        public ChangeLeadStatusCommandHandler(ILeadRepository leadRepository, IMapper mapper, IMediator mediator) : base(mapper, mediator) 
         {
             _leadRepository = leadRepository;
         }
 
         public override async Task<ChangeLeadStatusCommandResponse> Handle(ChangeLeadStatusCommand request, CancellationToken cancellationToken)
         {
-            var lead = await _leadRepository.GetByIdComplete(request.ChangeLeadStatusCommandDto.LeadId);
+            var lead = await _leadRepository.GetByIdCompleteAsync(request.ChangeLeadStatusCommandDto.LeadId);
 
             if (lead is null)
                 return new ChangeLeadStatusCommandResponse(false, "Lead não encontrada");
@@ -37,6 +34,10 @@ namespace Leads.Application.Features.Leads.Commands.ChangeLeadStatus
             await _leadRepository.UpdateAsync(lead);
 
             var leadViewModel = _mapper.Map<ChangeLeadStatusViewModel>(lead);
+
+            if ((int)request.ChangeLeadStatusCommandDto.NewStatus == (int)LeadStatus.Accepted)
+                await _mediator.Publish(new AcceptLeadEvent(lead.Id));
+
 
             return new ChangeLeadStatusCommandResponse(leadViewModel);
         }

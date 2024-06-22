@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FluentValidation.Results;
+using Leads.SharedKernel.Mediator.Interfaces;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,11 @@ namespace Leads.SharedKernel.Mediator.Messages
         where TRequest : BaseMessage<TResponse>
     {
         protected IMapper _mapper;
-        public BaseHandler(IMapper mapper)
+        protected IMediator _mediator;
+        public BaseHandler(IMapper mapper, IMediator mediator)
         {
             _mapper = mapper;
+            _mediator = mediator;
         }
 
         public abstract Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken);

@@ -13,3 +13,5 @@
 /Leads.Data/bin/Debug/net6.0
 /Leads.Domain/bin/Debug/net6.0
 /Leads.SharedKernel/bin/Debug/net6.0
+/Leads.Tests/bin/Debug/net6.0
+/Leads.Tests/obj

@@ -2,9 +2,11 @@
 {
     public class EmailService : IEmailService
     {
-        public async Task SendAcceptanceEmail()
+        private const string RECIPIENT = "vendas@test.com";
+        public async Task SendAcceptanceEmail(decimal finalPrice, Guid leadId)
         {
-            Console.WriteLine("Email sended!");
+            var message = $"The Lead with Id {leadId} was accepted and has the final price of ${finalPrice} -- TO {RECIPIENT}";
+            Console.Write(message);
             return;
         }
     }

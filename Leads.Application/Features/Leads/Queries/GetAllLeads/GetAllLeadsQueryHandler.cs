@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Leads.Domain.Aggregates.Lead;
 using Leads.SharedKernel.Mediator.Messages;
+using MediatR;
 
 namespace Leads.Application.Features.Leads.Queries.GetAllLeads
 {
@@ -8,14 +9,14 @@ namespace Leads.Application.Features.Leads.Queries.GetAllLeads
     {
         private ILeadRepository _leadRepository;
 
-        public GetAllLeadsQueryHandler(ILeadRepository leadRepository, IMapper mapper) : base(mapper)
+        public GetAllLeadsQueryHandler(ILeadRepository leadRepository, IMapper mapper, IMediator mediator) : base(mapper, mediator)
         {
             _leadRepository = leadRepository;
         }
 
         public override async Task<GetAllLeadsQueryResponse> Handle(GetAllLeadsQuery request, CancellationToken cancellationToken)
         {
-            var leads = await _leadRepository.GetAllComplete();
+            var leads = await _leadRepository.GetAllCompleteAsync();
 
             if (!leads.Any())
                 return new GetAllLeadsQueryResponse();

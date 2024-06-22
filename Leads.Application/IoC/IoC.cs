@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
 using Leads.Application.Configuration;
+using Leads.Application.Events.AcceptLeadEvent;
 using Leads.Application.Services.EmailService;
 using Leads.Data.Contexts;
 using Leads.Data.Repositories;
 using Leads.Domain.Aggregates.Lead;
 using Leads.SharedKernel;
+using Leads.SharedKernel.Mediator.Messages;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -14,10 +17,10 @@ namespace Leads.Application.IoC
     {
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
-            services.AddAplicationServices();
             services.AddDataServices();
             services.AddInfrastructureServices();
             services.ConfigureKernel();
+            services.AddAplicationServices();
 
             return services;
         }
@@ -56,6 +59,7 @@ namespace Leads.Application.IoC
         {
             KernelIoc.RegisterSharedServices(services);
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+            
 
             return services;
         }

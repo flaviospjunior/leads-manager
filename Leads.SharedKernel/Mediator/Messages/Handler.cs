@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MediatR;
 
 namespace Leads.SharedKernel.Mediator.Messages
 {
@@ -7,7 +8,7 @@ namespace Leads.SharedKernel.Mediator.Messages
         where TCommand: BaseMessage<T>
     {
 
-        public Handler(IMapper mapper) : base(mapper)
+        public Handler(IMapper mapper, IMediator mediator) : base(mapper, mediator)
         {
             
         }
