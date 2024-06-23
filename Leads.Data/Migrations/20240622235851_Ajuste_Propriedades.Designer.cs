@@ -4,6 +4,7 @@ using Leads.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Leads.Data.Migrations
 {
     [DbContext(typeof(LeadsDbContext))]
-    partial class LeadsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240622235851_Ajuste_Propriedades")]
+    partial class Ajuste_Propriedades
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,7 +62,7 @@ namespace Leads.Data.Migrations
 
                     b.HasIndex("SuburbId");
 
-                    b.ToTable("Leads", (string)null);
+                    b.ToTable("Leads");
                 });
 
             modelBuilder.Entity("Leads.Domain.Entities.Category", b =>
@@ -74,7 +76,7 @@ namespace Leads.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category", (string)null);
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("Leads.Domain.Entities.Contact", b =>
@@ -94,7 +96,7 @@ namespace Leads.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contact", (string)null);
+                    b.ToTable("Contact");
                 });
 
             modelBuilder.Entity("Leads.Domain.Entities.Suburb", b =>
@@ -111,7 +113,7 @@ namespace Leads.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Suburb", (string)null);
+                    b.ToTable("Suburb");
                 });
 
             modelBuilder.Entity("Leads.Domain.Aggregates.Lead.Lead", b =>

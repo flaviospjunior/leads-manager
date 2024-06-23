@@ -9,8 +9,6 @@ namespace Leads.Tests.Services
         {
             var mock = new Mock<IEmailService>();
 
-            //mock.Setup(es => es);
-
             return mock;
         }
     }

@@ -1,6 +1,5 @@
 ﻿using Leads.Data.Contexts;
 using Leads.Domain.Aggregates.Lead;
-using Leads.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Leads.Data.Repositories
@@ -17,7 +16,7 @@ namespace Leads.Data.Repositories
 
         public async Task<Lead> GetByIdCompleteAsync(Guid id)
         {
-            return await _context.Leads
+            return await _context.Leads.AsNoTracking()
                 .Include(ld => ld.Suburb)
                 .Include(ld => ld.Contact)
                 .Include(ld => ld.Category)

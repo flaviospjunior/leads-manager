@@ -1,12 +1,5 @@
 ﻿using Leads.Application.Features.Leads.Queries.GetAllLeads;
-using Leads.Domain.Aggregates.Lead;
 using Leads.Tests.Fixture;
-using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Leads.Tests.Application.Features.Leads.Queries

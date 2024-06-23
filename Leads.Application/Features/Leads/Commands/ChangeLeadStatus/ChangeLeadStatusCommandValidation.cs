@@ -1,10 +1,12 @@
 ﻿using FluentValidation;
+using Leads.Domain.Aggregates.Lead;
+using Leads.Domain.Enums;
 
 namespace Leads.Application.Features.Leads.Commands.ChangeLeadStatus
 {
     public class ChangeLeadStatusCommandValidation : AbstractValidator<ChangeLeadStatusCommand>
     {
-        public ChangeLeadStatusCommandValidation()
+        public ChangeLeadStatusCommandValidation(Lead lead)
         {
             RuleFor(cl => cl.ChangeLeadStatusCommandDto.NewStatus)
                 .NotNull()
@@ -16,6 +18,8 @@ namespace Leads.Application.Features.Leads.Commands.ChangeLeadStatus
                 .NotNull()
                 .NotEmpty()
                 .WithMessage("O Id da Lead deve ser informado");
+
+            RuleFor(x => lead).Must(s => s.Status.Equals(LeadStatus.Invited)).WithMessage("Status do Lead atual é incompatível com a alteração");
         }
     }
 }

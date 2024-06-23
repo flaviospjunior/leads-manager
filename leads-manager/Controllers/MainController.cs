@@ -1,5 +1,4 @@
 ﻿using Leads.SharedKernel.Mediator.Messages;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace leads_manager.Controllers

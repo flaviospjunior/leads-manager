@@ -8,6 +8,11 @@ namespace Leads.Data.Configuration
     {
         public static void Initialize(LeadsDbContext context)
         {
+            if (context.Leads.Any())
+            {
+                return; 
+            }
+
             var suburb = new Suburb() { Id = Guid.NewGuid(), Name = "Brighton", Number = 1080 };
             var suburb1 = new Suburb() { Id = Guid.NewGuid(), Name = "Surry Hills", Number = 777 };
             var suburb2 = new Suburb() { Id = Guid.NewGuid(), Name = "Rockingham", Number = 487 };

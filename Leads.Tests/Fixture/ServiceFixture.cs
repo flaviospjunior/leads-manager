@@ -2,11 +2,6 @@
 using Leads.Application.Services.EmailService;
 using Leads.Tests.Services;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Leads.Tests.Fixture
 {

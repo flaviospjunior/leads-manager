@@ -1,10 +1,5 @@
 ﻿using AutoMapper;
 using Leads.Domain.Aggregates.Lead;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Leads.Application.Features.Leads.Commands.ChangeLeadStatus
 {
@@ -21,7 +16,8 @@ namespace Leads.Application.Features.Leads.Commands.ChangeLeadStatus
                 .ForMember(leadVm => leadVm.ContactName, dest => dest.MapFrom(lead => lead.Contact.Name))
                 .ForMember(leadVm => leadVm.ContactEmail, dest => dest.MapFrom(lead => lead.Contact.Email))
                 .ForMember(leadVm => leadVm.ContactPhoneNumber, dest => dest.MapFrom(lead => lead.Contact.PhoneNumber))
-                .ForMember(leadVm => leadVm.Suburb, dest => dest.MapFrom(lead => string.Concat(lead.Suburb.Name, ' ', lead.Suburb.Number)));
+                .ForMember(leadVm => leadVm.Suburb, dest => dest.MapFrom(lead => string.Concat(lead.Suburb.Name, ' ', lead.Suburb.Number)))
+                .ForMember(leadVm => leadVm.Category, dest => dest.MapFrom(lead => lead.Category.Name));
         }
     }
 }

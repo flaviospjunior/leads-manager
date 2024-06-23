@@ -1,11 +1,6 @@
 ﻿using Leads.Domain.Aggregates.Lead;
 using Leads.Domain.Entities;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Leads.Tests.Data.Repositories
 {

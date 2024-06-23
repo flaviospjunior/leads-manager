@@ -16,7 +16,7 @@ namespace leads_manager.Controllers.Leads
         }
 
 
-        [SwaggerOperation(Summary = "Buscar todos os leads", Description ="Retorna todos os leads atualmente inseridos na base de dados")]
+        [SwaggerOperation(Summary = "Buscar todos os leads", Description = "Retorna todos os leads atualmente inseridos na base de dados")]
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(GetAllLeadsQuery))]
         [SwaggerResponse(StatusCodes.Status400BadRequest, Type = typeof(GetAllLeadsQuery))]
         [HttpGet]
@@ -27,11 +27,13 @@ namespace leads_manager.Controllers.Leads
         }
 
 
-        [SwaggerOperation(Summary ="Teste" )]
-        [HttpPatch]
-        public async Task<ActionResult<ChangeLeadStatusCommandResponse>> Patch([FromBody]ChangeLeadStatusCommandDto changeLeadStatusCommandDto)
+        [SwaggerOperation(Summary = "Atualiza o Status de um Lead", Description = "Atualiza o status do Lead e, a depender do Price do Lead, é aplicada a regra de desconto")]
+        [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(ChangeLeadStatusCommand))]
+        [SwaggerResponse(StatusCodes.Status400BadRequest, Type = typeof(ChangeLeadStatusCommand))]
+        [HttpPatch("{leadId}/{newStatus}")]
+        public async Task<ActionResult<ChangeLeadStatusCommandResponse>> Patch(Guid leadId, int newStatus)
         {
-            var response = await _mediator.SendCommand(new ChangeLeadStatusCommand(changeLeadStatusCommandDto));
+            var response = await _mediator.SendCommand(new ChangeLeadStatusCommand(new ChangeLeadStatusCommandDto(leadId, (NewStatusLead)newStatus)));
             return CustomResponse(response);
         }
     }
