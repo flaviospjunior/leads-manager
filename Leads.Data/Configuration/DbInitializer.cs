@@ -29,13 +29,13 @@ namespace Leads.Data.Configuration
             var leads = new List<Lead>
             {
                 new Lead(Guid.NewGuid(), Domain.Enums.LeadStatus.Invited, "Paint a wall", 200m, 0, DateTime.Now, suburb, contact, category1),
-                new Lead(Guid.NewGuid(), Domain.Enums.LeadStatus.Accepted, "Paint some walls", 700m, 0, DateTime.Now, suburb2, contact2, category),
-                new Lead(Guid.NewGuid(), Domain.Enums.LeadStatus.Accepted, "Bricklaying involves laying bricks in mortar to construct and repair walls, partitions, arches, and other structures.", 300m, 0, DateTime.Now, suburb1, contact, category2),
-                new Lead(Guid.NewGuid(), Domain.Enums.LeadStatus.Accepted, "Retaining wall construction involves building walls that hold back soil or rock from a building, structure, or area.", 600m, 0, DateTime.Now, suburb, contact, category1),
-                new Lead(Guid.NewGuid(), Domain.Enums.LeadStatus.Accepted, "Stonework", 900m, 0, DateTime.Now, suburb2, contact, category),
-                new Lead(Guid.NewGuid(), Domain.Enums.LeadStatus.Accepted, "Waterproofing is the application of materials to surfaces to prevent water infiltration, essential for basements, foundations, and roofs.", 400m, 0, DateTime.Now, suburb1, contact2, category2),
+                new Lead(Guid.NewGuid(), Domain.Enums.LeadStatus.Invited, "Paint some walls", 700m, 0, DateTime.Now, suburb2, contact2, category),
+                new Lead(Guid.NewGuid(), Domain.Enums.LeadStatus.Invited, "Bricklaying involves laying bricks in mortar to construct and repair walls, partitions, arches, and other structures.", 300m, 0, DateTime.Now, suburb1, contact, category2),
+                new Lead(Guid.NewGuid(), Domain.Enums.LeadStatus.Invited, "Retaining wall construction involves building walls that hold back soil or rock from a building, structure, or area.", 600m, 0, DateTime.Now, suburb, contact, category1),
+                new Lead(Guid.NewGuid(), Domain.Enums.LeadStatus.Invited, "Stonework", 900m, 0, DateTime.Now, suburb2, contact, category),
+                new Lead(Guid.NewGuid(), Domain.Enums.LeadStatus.Invited, "Waterproofing is the application of materials to surfaces to prevent water infiltration, essential for basements, foundations, and roofs.", 400m, 0, DateTime.Now, suburb1, contact2, category2),
                 new Lead(Guid.NewGuid(), Domain.Enums.LeadStatus.Invited, "Drywall installation", 800m, 0, DateTime.Now, suburb1, contact1, category1),
-                new Lead(Guid.NewGuid(), Domain.Enums.LeadStatus.Accepted, "Stonework involves the construction and repair of structures made from natural stone, such as walls, fireplaces, and decorative features.", 900m, 0, DateTime.Now, suburb2, contact, category),
+                new Lead(Guid.NewGuid(), Domain.Enums.LeadStatus.Accepted, "Stonework involves the construction and repair of structures made from natural stone, such as walls, fireplaces, and decorative features.", 100m, 100m, DateTime.Now, suburb2, contact, category),
                 new Lead(Guid.NewGuid(), Domain.Enums.LeadStatus.Invited, "Foundation work entails the excavation and construction of the base structure that supports buildings and other structures.", 400m, 0, DateTime.Now, suburb1, contact1, category2),
                 new Lead(Guid.NewGuid(), Domain.Enums.LeadStatus.Invited, "Stucco application is the process of applying a durable and weather-resistant plaster to exterior surfaces of buildings.", 1000m, 0, DateTime.Now, suburb, contact, category1),
                 new Lead(Guid.NewGuid(), Domain.Enums.LeadStatus.Invited, "Paint a wall", 1000m, 0, DateTime.Now, suburb2, contact, category1)
