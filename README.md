@@ -53,6 +53,19 @@ Aplique a Migration mais recente de acordo com o comando a seguir:
 
 ### Atualize o banco de dados com a migration mais recente
 
+#### Package Manager Console
+
+1. Abra o Visual Studio.
+2. Vá para **Tools** > **NuGet Package Manager** > **Package Manager Console**.
+3. Execute os seguintes comandos:
+
+```powershell
+# Atualize o banco de dados com a migration mais recente
+Update-Database -Project Leads.Data -StartupProject Leads-Manager
+```
+
+#### Opção via Terminal
+
 ```bash
 # Aplicação de Migration
 cd Leads-Manager
@@ -67,6 +80,7 @@ dotnet run
 ```
 
 Por padrão a aplicação estará disponível em `https://localhost:7256`.
+
 A documentação estará disponível em `https://localhost:7256/swagger/index.html`.
 
 ## Estrutura do Projeto
