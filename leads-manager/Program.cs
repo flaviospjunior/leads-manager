@@ -1,9 +1,7 @@
 using Leads.Application.IoC;
 using Leads.Data.Configuration;
 using Leads.Data.Contexts;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
